@@ -1,489 +1,88 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta content="This website introduces Intel® Extension for Scikit-learn*" name="description" />
+  <meta content="Intel optimization, Scikit-learn, Intel® Extension for Scikit-learn*, GPU, discrete GPU, Intel discrete GPU" name="keywords" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intel® Extension for Scikit-learn* &#8212; Intel(R) Extension for Scikit-learn* 2023.0.1 documentation</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Intel® Extension for PyTorch* Documentation</title>
+  <link rel="stylesheet" href="_css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_css/custom.css" type="text/css" />
+  <script src="_scripts/jquery.js"></script>
+  <script src="_scripts/theme.js"></script>
+</head>
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <link rel="shortcut icon" href="_static/favicons.png"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Acceleration" href="acceleration.html" />
-    <script defer type="text/javascript" src="https://www.intel.com/content/dam/www/global/wap/performance-config.js" ></script>
-    <script type="text/javascript">
-        // Configure TMS settings
-        var wapLocalCode = 'us-en'; // Dynamically set per localized site, see mapping table for values
-        var wapSection = "scikit-learn"; // WAP team will give you a unique section for your site
-        // Load TMS
-        if(document.location.href.contains("intel.github.io/scikit-learn-intelex")){
-          (function () {
-            var url = 'https://www.intel.com/content/dam/www/global/wap/tms-loader.js'; // WAP file URL
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = url;
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-          })();
-      }
-      </script>
-
-  </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="#">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="_static/oneAPI-rgb-rev-100.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Intel(R) Extension for Scikit-learn* 2023.0.1 documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="acceleration.html">
-   Acceleration
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="what-is-patching.html">
-   Patching
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="blogs.html">
-   Medium Blogs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="system-requirements.html">
-   System Requirements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="memory-requirements.html">
-   Memory Requirements
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Get Started
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="installation.html">
-   Installation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="quick-start.html">
-   Quick Start
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="samples.html">
-   Samples
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="simple">
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="kaggle.html">
-   Kaggle Kernels
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="kaggle/classification.html">
-     Classification Tasks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="kaggle/regression.html">
-     Regression Tasks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="kaggle/automl.html">
-     AutoML Workflows
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Developer Guide
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="algorithms.html">
-   Supported Algorithms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="guide/acceleration.html">
-   Acceleration Details
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="global-patching.html">
-   Global Patching
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="verbose.html">
-   Verbose Mode
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="distributed-mode.html">
-   Distributed Mode
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="oneapi-gpu.html">
-   oneAPI and GPU support
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Community
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="support.html">
-   Support
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="contribute.html">
-   How to Contribute
-  </a>
- </li>
-</ul>
-
-    </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/index.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        <a class="issues-button"
-            href="https://github.com/intel/scikit-learn-intelex/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/intel/scikit-learn-intelex/edit/master/doc/sources/index.rst"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+          <p id="version-pick"><span><b>Pick a version:</b></span></p>
+          <p><span><b>CPU</b></span></p>
+          <ul id="ul_cpu">
+            <li class="toctree-l1"><a class="reference internal" href="cpu/latest">latest</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="cpu/2023.0.1+cpu">v2023.0.1+cpu</a></li>
+          </ul>
+          <p class="menu-separator"></p>
+          <p<span><b>XPU/GPU</b></span></p>
+          <ul id="ul_gpu">
+            <li class="toctree-l1"><a class="reference internal" href="xpu/latest">latest</a></li>
+          </ul>
         </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#usage">
-   Usage
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#important-links">
-   Important Links
-  </a>
-  <ul class="nav section-nav flex-column">
-  </ul>
- </li>
-</ul>
-
-            </nav>
-        </div>
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
-                
-  <div class="section" id="intelex">
-<span id="index"></span><h1>Intel® Extension for Scikit-learn*<a class="headerlink" href="#intelex" title="Permalink to this headline">¶</a></h1>
-<p>With Intel® Extension for Scikit-learn* you can accelerate your Scikit-learn applications and
-still have full conformance with all Scikit-Learn APIs and algorithms.
-Intel® Extension for Scikit-learn* is a free software AI accelerator that brings over 10-100X acceleration across a variety of applications.</p>
-<p>Intel® Extension for Scikit-learn* offers you a way to accelerate existing scikit-learn code.
-The acceleration is achieved through <a class="reference internal" href="what-is-patching.html#term-patching"><span class="xref std std-term">patching</span></a>:
-replacing the stock scikit-learn algorithms with their optimized versions provided by the extension.</p>
-<p class="rubric">Designed for Data Scientists and Framework Designers</p>
-<p>Intel® Extension for Scikit-learn* was created to provide data scientists with a way to get a better performance
-while using the familiar scikit-learn package and getting the same results.</p>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>You may enable patching in different ways:</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>These patching methods are interchangeable.
-They support different enabling scenarios while producing the same result.</p>
-</div>
-<ul>
-<li><p>Without editing the code of a scikit-learn application by using the following command line flag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">sklearnex</span> <span class="n">my_application</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-</li>
-<li><p>Directly from the script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">patch_sklearn</span>
-<span class="n">patch_sklearn</span><span class="p">()</span>
-</pre></div>
-</div>
-</li>
-</ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You have to import scikit-learn <strong>after</strong> these lines. Otherwise, the patching will not affect the original scikit-learn estimators.</p>
-</div>
-<ul>
-<li><p>Through importing the desired estimator from the sklearnex module in your script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
-</pre></div>
-</div>
-</li>
-<li><p>Through <a class="reference internal" href="global-patching.html#global-patching"><span class="std std-ref">global patching</span></a> to enable patching for your scikit-learn installation for all further runs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">sklearnex</span><span class="o">.</span><span class="n">glob</span> <span class="n">patch_sklearn</span>
-</pre></div>
-</div>
-</li>
-</ul>
-<p class="rubric">Example</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">patch_sklearn</span>
-<span class="n">patch_sklearn</span><span class="p">()</span>
-
-<span class="c1"># You need to re-import scikit-learn algorithms after the patch</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
-              <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;kmeans.labels_ = </span><span class="si">{</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In the example above, you can see that the use of the original Scikit-learn
-has not changed. This behavior is achieved through drop-in patching.</p>
-<p>To <a class="reference internal" href="what-is-patching.html#term-unpatching"><span class="xref std std-term">undo the patch</span></a>, run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sklearnex</span><span class="o">.</span><span class="n">unpatch_sklearn</span><span class="p">()</span>
-<span class="c1"># Re-import scikit-learn algorithms after the unpatch:</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-</pre></div>
-</div>
-<p>You may specify which algorithms to patch:</p>
-<ul>
-<li><p>Patching only one algorithm:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">patch_sklearn</span>
-<span class="c1"># The names match scikit-learn estimators</span>
-<span class="n">patch_sklearn</span><span class="p">(</span><span class="s2">&quot;SVC&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</li>
-<li><p>Patching several algorithms:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">patch_sklearn</span>
-<span class="c1"># The names match scikit-learn estimators</span>
-<span class="n">patch_sklearn</span><span class="p">([</span><span class="s2">&quot;SVC&quot;</span><span class="p">,</span> <span class="s2">&quot;DBSCAN&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="important-links">
-<h2>Important Links<a class="headerlink" href="#important-links" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/intel/scikit-learn-intelex">Intel® Extension for Scikit-learn* repository</a></p></li>
-<li><p><a class="reference external" href="https://github.com/IntelPython/scikit-learn_bench">Machine Learning Benchmarks</a></p></li>
-<li><p><a class="reference external" href="https://github.com/oneapi-src/oneDAL">About Intel(R) oneAPI Data Analytics Library</a></p></li>
-<li><p><a class="reference external" href="https://github.com/intel/scikit-learn-intelex/tree/master/daal4py">About daal4py</a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-</div>
-</div>
-
-
-              </div>
-              
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="acceleration.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Acceleration</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Intel<br/>
-        
-            &copy; Copyright 2022, Intel.<br/>
-          <div class="extra_footer">
-            
-    <p align="right">
-        <a href=
-            "https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html">
-            Cookies
-        </a>
-    </p>
-
-          </div>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </nav>
 
-  </body>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">intel_extension_for_pytorch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <section id="welcome-to-intel-extension-for-pytorch-documentation">
+                <h1>Welcome to Intel® Extension for PyTorch* Documentation<a class="headerlink" href="#welcome-to-intel-extension-for-pytorch-documentation" title="Permalink to this heading"></a></h1>
+                <p>Intel® Extension for PyTorch* extends PyTorch* with up-to-date features optimizations for an extra performance boost on Intel hardware. Optimizations take advantage of AVX-512 Vector Neural Network Instructions (AVX512 VNNI) and Intel® Advanced Matrix Extensions (Intel® AMX) on Intel CPUs as well as Intel X<sup>e</sup> Matrix Extensions (XMX) AI engines on Intel discrete GPUs. Moreover, through PyTorch* <cite>xpu</cite> device, Intel® Extension for PyTorch* provides easy GPU acceleration for Intel discrete GPUs with PyTorch*.</p>
+                <p>Intel® Extension for PyTorch* provides optimizations for both eager mode and graph mode, however, compared to eager mode, graph mode in PyTorch* normally yields better performance from optimization techniques, such as operation fusion. Intel® Extension for PyTorch* amplifies them with more comprehensive graph optimizations. Therefore we recommend you to take advantage of Intel® Extension for PyTorch* with <a class="reference external" href="https://pytorch.org/docs/stable/jit.html">TorchScript</a> whenever your workload supports it. You could choose to run with <cite>torch.jit.trace()</cite> function or <cite>torch.jit.script()</cite> function, but based on our evaluation, <cite>torch.jit.trace()</cite> supports more workloads so we recommend you to use <cite>torch.jit.trace()</cite> as your first choice.</p>
+                <p>The extension can be loaded as a Python module for Python programs or linked as a C++ library for C++ programs. In Python scripts users can enable it dynamically by importing <cite>intel_extension_for_pytorch</cite>.</p>
+                <p>Intel® Extension for PyTorch* is structured as shown in the following figure:</p>
+                <figure class="align-center">
+                  <a class="reference internal image-reference" href="_images/intel_extension_for_pytorch_structure.png"><img alt="Architecture of Intel® Extension for PyTorch*" src="_images/intel_extension_for_pytorch_structure.png" style="width: 800px;" /></a>
+                </figure>
+                <div class="line-block">
+                  <div class="line"><br /></div>
+                </div>
+                <p>Optimizations for both eager mode and graph mode contribute to extra performance accelerations with the extension. In eager mode, the PyTorch frontend is extended with custom Python modules (such as fusion modules), optimal optimizers, and INT8 quantization APIs. Further performance boost is available by converting the eager-mode model into graph mode via extended graph fusion passes. In the graph mode, the fusions reduce operator/kernel invocation overheads, and thus increase performance. On CPU, Intel® Extension for PyTorch* dispatches the operators into their underlying kernels automatically based on ISA that it detects and leverages vectorization and matrix acceleration units available on Intel hardware. Intel® Extension for PyTorch* runtime extension brings better efficiency with finer-grained thread runtime control and weight sharing. On GPU, optimized operators and kernels are implemented and registered through PyTorch dispatching mechanism. These operators and kernels are accelerated from native vectorization feature and matrix calculation feature of Intel GPU hardware. Intel® Extension for PyTorch* for GPU utilizes the <a class="reference external" href="https://github.com/intel/llvm#oneapi-dpc-compiler">DPC++</a> compiler that supports the latest <a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html">SYCL*</a> standard and also a number of extensions to the SYCL* standard, which can be found in the <a class="reference external" href="https://github.com/intel/llvm/tree/sycl/sycl/doc/extensions">sycl/doc/extensions</a> directory.</p>
+                <div class="admonition note">
+                  <p class="admonition-title">Note</p>
+                  <p>GPU features are not included in CPU only packages.</p>
+                </div>
+                <p>Intel® Extension for PyTorch* has been released as an open–source project at <a class="reference external" href="https://github.com/intel/intel-extension-for-pytorch">Github</a>. Source code is available at <a class="reference external" href="https://github.com/intel/intel-extension-for-pytorch/tree/xpu-master">xpu-master branch</a>. Check <a class="reference internal" href="./xpu/latest/">the tutorial</a> for detailed information. Due to different development schedule, optimizations for CPU only might have a newer code base. Source code is available at <a class="reference external" href="https://github.com/intel/intel-extension-for-pytorch/tree/master">master branch</a>. Check <a class="reference internal" href="./cpu/latest/">the CPU tutorial</a> for detailed information on the CPU side.</p>
+                <div class="toctree-wrapper compound">
+                </div>
+              </section>
+            </div>
+          </div>
+          <footer>
+            <hr/>
+            <div role="contentinfo">
+              <p>&#169; Copyright Intel(R).</p>
+            </div>
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+            <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+            provided by <a href="https://readthedocs.org">Read the Docs</a>.
+          </footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script>
+</body>
 </html>
