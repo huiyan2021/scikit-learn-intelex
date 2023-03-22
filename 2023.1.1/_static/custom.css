@@ -1,0 +1,7 @@
+/* set color of version navigator to yellow */
+div.version a {
+    color: yellow;
+}
+div.version p {
+    color: yellow;
+}
