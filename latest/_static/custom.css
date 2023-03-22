@@ -1,7 +1,7 @@
 /* set color of version navigator to yellow */
 div.version a {
-    color: yellow;
+    color: hsla(0, 0%, 100%, 0.3);
 }
 div.version p {
-    color: yellow;
+    color: #FFFF00;
 }
