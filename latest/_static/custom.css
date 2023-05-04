@@ -18,3 +18,7 @@ div.version a {
 div.version p {
     color: #FFFF00;
 }
+section {
+    display:inline-block;
+    vertical-align:top; /* here*/ 
+}
