@@ -53,18 +53,35 @@ Important Links
    :hidden:
    :maxdepth: 2
 
-   installation.rst
-   what-is-patching.rst
+   gsg.rst 
    quick-start.rst
-   System Requirements <system-requirements.rst>
-   memory-requirements.rst
+   what-is-patching.rst
+   
+.. toctree::
+   :caption: Features
+   :hidden:
+   :maxdepth: 2
+
    algorithms.rst
    oneAPI and GPU support <oneapi-gpu.rst>
+   distributed-mode.rst
+   verbose.rst
 
 .. toctree::
    :caption: Releases
    :hidden:
    :maxdepth: 2
+
+   releases.rst 
+
+.. toctree::
+   :caption: Installation Guide
+   :hidden:
+   :maxdepth: 2
+
+   System Requirements <system-requirements.rst>
+   memory-requirements.rst
+   installation.rst  
 
 .. toctree::
    :caption: Examples
@@ -72,6 +89,14 @@ Important Links
    :maxdepth: 2
 
    samples.rst
+   kaggle.rst
+
+.. toctree::
+   :caption: Performance Tuning Guide
+   :hidden:
+   :maxdepth: 2
+
+   guide/acceleration.rst
 
 .. toctree::
    :caption: Performance
@@ -81,28 +106,11 @@ Important Links
    acceleration.rst
 
 .. toctree::
-   :caption: Developer Guide
-   :hidden:
-   :maxdepth: 2
-
-   guide/acceleration.rst
-   verbose.rst
-   distributed-mode.rst
-   kaggle.rst
-
-.. toctree::
    :caption: Blogs & Publications
    :hidden:
    :maxdepth: 2
 
    Medium Blogs <blogs.rst>
-
-.. toctree::
-   :caption: Support
-   :hidden:
-   :maxdepth: 2
-
-   support.rst
 
 .. toctree::
    :caption: How to contribute
@@ -115,3 +123,5 @@ Important Links
    :caption: License
    :hidden:
    :maxdepth: 2
+
+   license.rst
