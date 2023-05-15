@@ -17,7 +17,7 @@
 .. _get_started:
 
 ############################################
-Guide
+Getting Started Guide
 ############################################
 
-Get Started Guide: https://www.intel.com/content/www/us/en/developer/articles/guide/intel-extension-for-scikit-learn-getting-started.html
+Getting Started Guide: https://www.intel.com/content/www/us/en/developer/articles/guide/intel-extension-for-scikit-learn-getting-started.html
