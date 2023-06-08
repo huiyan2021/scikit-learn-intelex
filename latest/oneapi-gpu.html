@@ -171,7 +171,7 @@ requirements</a> for details.</p>
 <p>Intel® Extension for Scikit-learn* offers two options for running an algorithm on a
 specific device with the help of dpctl:</p>
 <ul>
-<li><p>Pass input data as <a class="reference external" href="https://intelpython.github.io/dpctl/latest/docfiles/dpctl.tensor_api.html#dpctl.tensor.usm_ndarray">dpctl.tensor.usm_ndarray</a> to the algorithm.</p>
+<li><p>Pass input data as <a class="reference external" href="https://intelpython.github.io/dpctl/latest/docfiles/dpctl/usm_ndarray.html#dpctl.tensor.usm_ndarray">dpctl.tensor.usm_ndarray</a> to the algorithm.</p>
 <p>The computation will run on the device where the input data is
 located, and the result will be returned as <code class="code docutils literal notranslate"><span class="pre">usm_ndarray</span></code> to the same
 device.</p>
@@ -230,6 +230,9 @@ described above for device offloading instead of using <code class="code docutil
    <span class="n">clustering</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Note: Current offloading behavior restricts fitting and inference of any models to be
+in the same context or absence of context. For example, a model trained in the GPU context with
+target_offload=”gpu:0” throws an error if the inference is made outside the same GPU context.</p>
 </section>
 </section>
 
@@ -244,7 +247,7 @@ described above for device offloading instead of using <code class="code docutil
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Intel.</p>
+    <p>&#169; Copyright 2023, Intel.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

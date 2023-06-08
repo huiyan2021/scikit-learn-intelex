@@ -95,6 +95,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Acceleration Details</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#tsne">TSNE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-forest">Random Forest</a></li>
 </ul>
 </li>
 </ul>
@@ -141,13 +142,13 @@
              
   <section id="acceleration-details">
 <h1>Acceleration Details<a class="headerlink" href="#acceleration-details" title="Permalink to this heading"></a></h1>
-<p>The performance of some algorithms changes based on the parameters that were used.
+<p>The performance of some algorithms changes based on the parameters that are used.
 This section denotes the details of such cases.</p>
 <p>Refer to <a class="reference internal" href="../algorithms.html#sklearn-algorithms"><span class="std std-ref">Supported Algorithms</span></a> to see the full list of algorithms, parameters, and data formats supported in Intel® Extension for Scikit-learn*.</p>
 <section id="tsne">
 <span id="acceleration-tsne"></span><h2>TSNE<a class="headerlink" href="#tsne" title="Permalink to this heading"></a></h2>
 <p>TSNE algorithm consists of two components: KNN and Gradient Descent.
-The overall accelration of TSNE depends on the acceleration of each of these algorithms.</p>
+The overall acceleration of TSNE depends on the acceleration of each of these algorithms.</p>
 <ul class="simple">
 <li><p>The KNN part of the algorithm supports all parameters except:</p>
 <ul>
@@ -164,6 +165,55 @@ The overall accelration of TSNE depends on the acceleration of each of these alg
 </ul>
 <p>To get better performance, use parameters supported by both components.</p>
 </section>
+<section id="random-forest">
+<span id="acceleration-rf"></span><h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading"></a></h2>
+<p>Random Forest models accelerated with Intel® Extension for Scikit-learn* and using the <cite>hist</cite> splitting
+method discretize training data by creating a histogram with a configurable
+number of bins. The following keyword arguments can be used to influence the
+created histogram.</p>
+<table class="docutils align-left">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword argument</p></th>
+<th class="head"><p>Possible values</p></th>
+<th class="head"><p>Default value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">maxBins</span></code></p></td>
+<td><p><cite>[0, inf)</cite></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">256</span></code></p></td>
+<td><p>Number of bins in the histogram with the discretized training data. The
+value <code class="docutils literal notranslate"><span class="pre">0</span></code> disables data discretization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">minBinSize</span></code></p></td>
+<td><p><cite>[1, inf)</cite></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+<td><p>Minimum number of training data points in each bin after discretization.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binningStrategy</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">quantiles,</span> <span class="pre">averages</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">quantiles</span></code></p></td>
+<td><p>Selects the algorithm used to calculate bin edges. <code class="docutils literal notranslate"><span class="pre">quantiles</span></code>
+results in bins with a similar amount of training data points. <code class="docutils literal notranslate"><span class="pre">averages</span></code>
+divides the range of values observed in the training data set into
+equal-width bins of size <cite>(max - min) / maxBins</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that using discretized training data can greatly accelerate model training
+times, especially for larger data sets. However, due to the reduced fidelity of
+the data, the resulting model can present worse performance metrics compared to
+a model trained on the original data. In such cases, the number of bins can be
+increased with the <code class="docutils literal notranslate"><span class="pre">maxBins</span></code> parameter, or binning can be disabled entirely by
+setting <code class="docutils literal notranslate"><span class="pre">maxBins=0</span></code>.</p>
+</section>
 </section>
 
 
@@ -177,7 +227,7 @@ The overall accelration of TSNE depends on the acceleration of each of these alg
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Intel.</p>
+    <p>&#169; Copyright 2023, Intel.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
