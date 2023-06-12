@@ -50,7 +50,6 @@ Important Links
 
 .. toctree::
    :caption: Getting Started
-   :titlesonly: 
    :hidden:
    :maxdepth: 1
 
