@@ -167,16 +167,16 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from timeit import default_timer as timer
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-import pandas as pd
-import numpy as np
-import requests
-import warnings
-import os
-from IPython.display import HTML
-warnings.filterwarnings(&#39;ignore&#39;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -186,22 +186,22 @@ warnings.filterwarnings(&#39;ignore&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dataset_dir = &#39;data&#39;
-dataset_name = &#39;year_prediction_msd&#39;
-url = &#39;https://archive.ics.uci.edu/ml/machine-learning-databases/00203/YearPredictionMSD.txt.zip&#39;
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_dir</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
+<span class="n">dataset_name</span> <span class="o">=</span> <span class="s1">&#39;year_prediction_msd&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://archive.ics.uci.edu/ml/machine-learning-databases/00203/YearPredictionMSD.txt.zip&#39;</span>
 
-os.makedirs(dataset_dir, exist_ok=True)
-local_url = os.path.join(dataset_dir, os.path.basename(url))
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dataset_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">local_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_dir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
 
-if not os.path.isfile(local_url):
-    response = requests.get(url, stream=True)
-    with open(local_url, &#39;wb+&#39;) as file:
-        for data in response.iter_content(8192):
-            file.write(data)
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">local_url</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_url</span><span class="p">,</span> <span class="s1">&#39;wb+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="mi">8192</span><span class="p">):</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-year = pd.read_csv(local_url, header=None)
-x = year.iloc[:, 1:].to_numpy(dtype=np.float32)
-y = year.iloc[:, 0].to_numpy(dtype=np.float32)
+<span class="n">year</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">local_url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -210,8 +210,8 @@ y = year.iloc[:, 0].to_numpy(dtype=np.float32)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1, random_state=0)
-x_train.shape, x_test.shape, y_train.shape, y_test.shape
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -231,9 +231,9 @@ x_train.shape, x_test.shape, y_train.shape, y_test.shape
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.preprocessing import MinMaxScaler, StandardScaler
-scaler_x = MinMaxScaler()
-scaler_y = StandardScaler()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="n">scaler_x</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">scaler_y</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -241,13 +241,13 @@ scaler_y = StandardScaler()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>scaler_x.fit(x_train)
-x_train = scaler_x.transform(x_train)
-x_test = scaler_x.transform(x_test)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler_x</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">scaler_x</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">scaler_x</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
 
-scaler_y.fit(y_train.reshape(-1, 1))
-y_train = scaler_y.transform(y_train.reshape(-1, 1)).ravel()
-y_test = scaler_y.transform(y_test.reshape(-1, 1)).ravel()
+<span class="n">scaler_y</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -259,8 +259,8 @@ y_test = scaler_y.transform(y_test.reshape(-1, 1)).ravel()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearnex import patch_sklearn
-patch_sklearn()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">patch_sklearn</span>
+<span class="n">patch_sklearn</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -278,18 +278,18 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.linear_model import Lasso
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
 
-params = {
-    &quot;alpha&quot;: 0.01,
-    &quot;fit_intercept&quot;: False,
-    &quot;random_state&quot;: 0,
-    &quot;copy_X&quot;: False,
-}
-start = timer()
-model = Lasso(**params).fit(x_train, y_train)
-train_patched = timer() - start
-f&quot;Intel® extension for Scikit-learn time: {train_patched:.2f} s&quot;
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="s2">&quot;fit_intercept&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;random_state&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;copy_X&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">train_patched</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="sa">f</span><span class="s2">&quot;Intel® extension for Scikit-learn time: </span><span class="si">{</span><span class="n">train_patched</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -307,9 +307,9 @@ f&quot;Intel® extension for Scikit-learn time: {train_patched:.2f} s&quot;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_predict = model.predict(x_test)
-mse_metric_opt = metrics.mean_squared_error(y_test, y_predict)
-f&#39;Patched Scikit-learn MSE: {mse_metric_opt}&#39;
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_predict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<span class="n">mse_metric_opt</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)</span>
+<span class="sa">f</span><span class="s1">&#39;Patched Scikit-learn MSE: </span><span class="si">{</span><span class="n">mse_metric_opt</span><span class="si">}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -330,8 +330,8 @@ f&#39;Patched Scikit-learn MSE: {mse_metric_opt}&#39;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearnex import unpatch_sklearn
-unpatch_sklearn()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">unpatch_sklearn</span>
+<span class="n">unpatch_sklearn</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -340,12 +340,12 @@ unpatch_sklearn()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.linear_model import Lasso
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
 
-start = timer()
-model = Lasso(**params).fit(x_train, y_train)
-train_unpatched = timer() - start
-f&quot;Original Scikit-learn time: {train_unpatched:.2f} s&quot;
+<span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">train_unpatched</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="sa">f</span><span class="s2">&quot;Original Scikit-learn time: </span><span class="si">{</span><span class="n">train_unpatched</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -363,9 +363,9 @@ f&quot;Original Scikit-learn time: {train_unpatched:.2f} s&quot;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_predict = model.predict(x_test)
-mse_metric_original = metrics.mean_squared_error(y_test, y_predict)
-f&#39;Original Scikit-learn MSE: {mse_metric_original}&#39;
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_predict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<span class="n">mse_metric_original</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">)</span>
+<span class="sa">f</span><span class="s1">&#39;Original Scikit-learn MSE: </span><span class="si">{</span><span class="n">mse_metric_original</span><span class="si">}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -382,17 +382,17 @@ f&#39;Original Scikit-learn MSE: {mse_metric_original}&#39;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>HTML(f&quot;&lt;h3&gt;Compare MSE metric of patched Scikit-learn and original&lt;/h3&gt;&quot;
-     f&quot;MSE metric of patched Scikit-learn: {mse_metric_opt} &lt;br&gt;&quot;
-     f&quot;MSE metric of unpatched Scikit-learn: {mse_metric_original} &lt;br&gt;&quot;
-     f&quot;Metrics ratio: {mse_metric_opt/mse_metric_original} &lt;br&gt;&quot;
-     f&quot;&lt;h3&gt;With Scikit-learn-intelex patching you can:&lt;/h3&gt;&quot;
-     f&quot;&lt;ul&gt;&quot;
-     f&quot;&lt;li&gt;Use your Scikit-learn code for training and prediction with minimal changes (a couple of lines of code);&lt;/li&gt;&quot;
-     f&quot;&lt;li&gt;Fast execution training and prediction of Scikit-learn models;&lt;/li&gt;&quot;
-     f&quot;&lt;li&gt;Get the similar quality&lt;/li&gt;&quot;
-     f&quot;&lt;li&gt;Get speedup in &lt;strong&gt;{(train_unpatched/train_patched):.1f}&lt;/strong&gt; times.&lt;/li&gt;&quot;
-     f&quot;&lt;/ul&gt;&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;h3&gt;Compare MSE metric of patched Scikit-learn and original&lt;/h3&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;MSE metric of patched Scikit-learn: </span><span class="si">{</span><span class="n">mse_metric_opt</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;MSE metric of unpatched Scikit-learn: </span><span class="si">{</span><span class="n">mse_metric_original</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;Metrics ratio: </span><span class="si">{</span><span class="n">mse_metric_opt</span><span class="o">/</span><span class="n">mse_metric_original</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;h3&gt;With Scikit-learn-intelex patching you can:&lt;/h3&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;ul&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Use your Scikit-learn code for training and prediction with minimal changes (a couple of lines of code);&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Fast execution training and prediction of Scikit-learn models;&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Get the similar quality&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Get speedup in &lt;strong&gt;</span><span class="si">{</span><span class="p">(</span><span class="n">train_unpatched</span><span class="o">/</span><span class="n">train_patched</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&lt;/strong&gt; times.&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;/ul&gt;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

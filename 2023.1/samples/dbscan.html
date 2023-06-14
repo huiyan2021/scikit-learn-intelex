@@ -167,13 +167,13 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from timeit import default_timer as timer
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import davies_bouldin_score
-from sklearn.datasets import fetch_openml
-from IPython.display import HTML
-import warnings
-warnings.filterwarnings(&#39;ignore&#39;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">davies_bouldin_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -183,7 +183,7 @@ warnings.filterwarnings(&#39;ignore&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x, y = fetch_openml(name=&#39;spoken-arabic-digit&#39;, return_X_y=True)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;spoken-arabic-digit&#39;</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -195,7 +195,7 @@ warnings.filterwarnings(&#39;ignore&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -204,8 +204,8 @@ warnings.filterwarnings(&#39;ignore&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.preprocessing import MinMaxScaler
-scaler_x = MinMaxScaler()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="n">scaler_x</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -213,9 +213,9 @@ scaler_x = MinMaxScaler()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>scaler_x.fit(x_train)
-x_train = scaler_x.transform(x_train)
-x_test = scaler_x.transform(x_test)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler_x</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">scaler_x</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">scaler_x</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -227,8 +227,8 @@ x_test = scaler_x.transform(x_test)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearnex import patch_sklearn
-patch_sklearn()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">patch_sklearn</span>
+<span class="n">patch_sklearn</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -246,15 +246,15 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.cluster import DBSCAN
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
 
-params = {
-    &#39;n_jobs&#39;: -1,
-}
-start = timer()
-y_pred = DBSCAN(**params).fit_predict(x_train)
-train_patched = timer() - start
-f&quot;Intel® extension for Scikit-learn time: {train_patched:.2f} s&quot;
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;n_jobs&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">train_patched</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="sa">f</span><span class="s2">&quot;Intel® extension for Scikit-learn time: </span><span class="si">{</span><span class="n">train_patched</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -272,8 +272,8 @@ f&quot;Intel® extension for Scikit-learn time: {train_patched:.2f} s&quot;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>score_opt = davies_bouldin_score(x_train, y_pred)
-f&quot;Intel® extension for Scikit-learn Davies-Bouldin score: {score_opt}&quot;
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score_opt</span> <span class="o">=</span> <span class="n">davies_bouldin_score</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="sa">f</span><span class="s2">&quot;Intel® extension for Scikit-learn Davies-Bouldin score: </span><span class="si">{</span><span class="n">score_opt</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -294,8 +294,8 @@ f&quot;Intel® extension for Scikit-learn Davies-Bouldin score: {score_opt}&quot
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearnex import unpatch_sklearn
-unpatch_sklearn()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">unpatch_sklearn</span>
+<span class="n">unpatch_sklearn</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -304,12 +304,12 @@ unpatch_sklearn()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.cluster import DBSCAN
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
 
-start = timer()
-y_pred = DBSCAN(**params).fit_predict(x_train)
-train_unpatched = timer() - start
-f&quot;Original Scikit-learn time: {train_unpatched:.2f} s&quot;
+<span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">train_unpatched</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="sa">f</span><span class="s2">&quot;Original Scikit-learn time: </span><span class="si">{</span><span class="n">train_unpatched</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -327,8 +327,8 @@ f&quot;Original Scikit-learn time: {train_unpatched:.2f} s&quot;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>score_original = davies_bouldin_score(x_train, y_pred)
-f&quot;Original Scikit-learn Davies-Bouldin score: {score_opt}&quot;
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score_original</span> <span class="o">=</span> <span class="n">davies_bouldin_score</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="sa">f</span><span class="s2">&quot;Original Scikit-learn Davies-Bouldin score: </span><span class="si">{</span><span class="n">score_opt</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -345,17 +345,17 @@ f&quot;Original Scikit-learn Davies-Bouldin score: {score_opt}&quot;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>HTML(f&quot;&lt;h3&gt;Compare Davies-Bouldin score of patched Scikit-learn and original&lt;/h3&gt;&quot;
-     f&quot;Davies-Bouldin score of patched Scikit-learn: {score_opt} &lt;br&gt;&quot;
-     f&quot;Davies-Bouldin score of unpatched Scikit-learn: {score_original} &lt;br&gt;&quot;
-     f&quot;Metrics ratio: {score_opt/score_original} &lt;br&gt;&quot;
-     f&quot;&lt;h3&gt;With Scikit-learn-intelex patching you can:&lt;/h3&gt;&quot;
-     f&quot;&lt;ul&gt;&quot;
-     f&quot;&lt;li&gt;Use your Scikit-learn code for training and prediction with minimal changes (a couple of lines of code);&lt;/li&gt;&quot;
-     f&quot;&lt;li&gt;Fast execution training and prediction of Scikit-learn models;&lt;/li&gt;&quot;
-     f&quot;&lt;li&gt;Get the similar quality&lt;/li&gt;&quot;
-     f&quot;&lt;li&gt;Get speedup in &lt;strong&gt;{(train_unpatched/train_patched):.1f}&lt;/strong&gt; times.&lt;/li&gt;&quot;
-     f&quot;&lt;/ul&gt;&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;h3&gt;Compare Davies-Bouldin score of patched Scikit-learn and original&lt;/h3&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;Davies-Bouldin score of patched Scikit-learn: </span><span class="si">{</span><span class="n">score_opt</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;Davies-Bouldin score of unpatched Scikit-learn: </span><span class="si">{</span><span class="n">score_original</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;Metrics ratio: </span><span class="si">{</span><span class="n">score_opt</span><span class="o">/</span><span class="n">score_original</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;h3&gt;With Scikit-learn-intelex patching you can:&lt;/h3&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;ul&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Use your Scikit-learn code for training and prediction with minimal changes (a couple of lines of code);&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Fast execution training and prediction of Scikit-learn models;&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Get the similar quality&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Get speedup in &lt;strong&gt;</span><span class="si">{</span><span class="p">(</span><span class="n">train_unpatched</span><span class="o">/</span><span class="n">train_patched</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&lt;/strong&gt; times.&lt;/li&gt;&quot;</span>
+     <span class="sa">f</span><span class="s2">&quot;&lt;/ul&gt;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
