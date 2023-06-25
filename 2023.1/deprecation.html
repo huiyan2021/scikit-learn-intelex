@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acceleration &mdash; Intel(R) Extension for Scikit-learn* 2023.1.1 documentation</title>
+  <title>Deprecation Notice &mdash; Intel(R) Extension for Scikit-learn* 2023.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Performance Tuning Guide" href="guide/acceleration.html" />
-    <link rel="prev" title="Kaggle Kernels that use AutoML and Intel® Extension for Scikit-learn*" href="kaggle/automl.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Release Notes" href="releases.html" />
     <script defer type="text/javascript" src="https://www.intel.com/content/dam/www/global/wap/performance-config.js" ></script>
     <script type="text/javascript">
         // Configure TMS settings
@@ -76,9 +76,12 @@
 <li class="toctree-l1"><a class="reference internal" href="verbose.html">Verbose Mode</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Releases</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Release Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deprecation.html">Deprecation Notice</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deprecation Notice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#macos-support">macOS* Support</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Installation Guide</span></p>
 <ul>
@@ -92,14 +95,8 @@
 <li class="toctree-l1"><a class="reference internal" href="kaggle.html">Kaggle Kernels</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Performance</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Acceleration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#speedup-over-original-scikit-learn">Speedup over original Scikit-learn</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#kaggle-kernels">Kaggle Kernels</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="acceleration.html">Acceleration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide/acceleration.html">Performance Tuning Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Blogs &amp; Publications</span></p>
@@ -129,9 +126,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Acceleration</li>
+      <li class="breadcrumb-item active">Deprecation Notice</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/acceleration.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/deprecation.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -139,31 +136,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="acceleration">
-<h1>Acceleration<a class="headerlink" href="#acceleration" title="Permalink to this heading"></a></h1>
-<p>The software acceleration provided by Intel® Extension for Scikit-learn* is achieved through the use of vector instructions,
-IA hardware-specific memory optimizations, threading, and optimizations for all upcoming Intel platforms at launch time.</p>
-<p>Intel® Extension for Scikit-learn* dynamically patches scikit-learn estimators to use Intel(R) oneAPI Data Analytics Library
-as the underlying solver, while getting the same solution faster.</p>
-<p>Intel® Extension for Scikit-learn* depends on daal4py. You can learn more in <a class="reference external" href="https://intelpython.github.io/daal4py">daal4py documentation</a>.</p>
-<section id="speedup-over-original-scikit-learn">
-<h2>Speedup over original Scikit-learn<a class="headerlink" href="#speedup-over-original-scikit-learn" title="Permalink to this heading"></a></h2>
-<a class="reference internal image-reference" href="_images/scikit-learn-acceleration-2021.2.3.PNG"><img alt="_images/scikit-learn-acceleration-2021.2.3.PNG" src="_images/scikit-learn-acceleration-2021.2.3.PNG" style="width: 800px;" /></a>
-<p>Configurations:</p>
-<ul class="simple">
-<li><p>HW: c5.24xlarge AWS EC2 Instance using an Intel Xeon Platinum 8275CL with 2 sockets and 24 cores per socket</p></li>
-<li><p>SW: scikit-learn version 0.24.2, scikit-learn-intelex version 2021.2.3, Python 3.8</p></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can also try out the benchmarks used to create this data by going to Intel’s <a class="reference external" href="https://github.com/IntelPython/scikit-learn_bench">scikit-learn_bench</a> repository and following the relevant instructions.</p>
-</div>
-<section id="kaggle-kernels">
-<h3>Kaggle Kernels<a class="headerlink" href="#kaggle-kernels" title="Permalink to this heading"></a></h3>
-<p>Check out <a class="reference external" href="https://www.kaggle.com/code/lordozvlad/introduction-to-scikit-learn-intelex/notebook">Introduction to scikit-learn-intelex</a>,
-a Kaggle notebook that summarizes the speedup you can achieve with Intel® Extension for Scikit-learn*.</p>
-<p>The acceleration is measured for a variety of machine learning workflows and Kaggle datasets.</p>
-</section>
+  <section id="deprecation-notice">
+<h1>Deprecation Notice<a class="headerlink" href="#deprecation-notice" title="Permalink to this heading"></a></h1>
+<p>This page provides information about the deprecations of a specific Intel® Extension for Scikit-learn* functionality.</p>
+<section id="macos-support">
+<h2>macOS* Support<a class="headerlink" href="#macos-support" title="Permalink to this heading"></a></h2>
+<p><strong>Deprecation:</strong> macOS* support is deprecated for Intel® Extension for Scikit-learn*. The 2023.x releases are the last to provide it.</p>
+<p><strong>Reasons for deprecation:</strong> No modern X86 macOS*-based systems are to be released.</p>
+<p><strong>Alternatives:</strong> The 2023.x version on macOS*.</p>
 </section>
 </section>
 
@@ -171,8 +151,8 @@ a Kaggle notebook that summarizes the speedup you can achieve with Intel® Exten
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="kaggle/automl.html" class="btn btn-neutral float-left" title="Kaggle Kernels that use AutoML and Intel® Extension for Scikit-learn*" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="guide/acceleration.html" class="btn btn-neutral float-right" title="Performance Tuning Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="releases.html" class="btn btn-neutral float-left" title="Release Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
