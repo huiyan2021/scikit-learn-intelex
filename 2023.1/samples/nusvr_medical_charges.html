@@ -68,7 +68,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../gsg.html">Getting Started Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../what-is-patching.html">Patching</a></li>
 </ul>
@@ -167,12 +166,12 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from timeit import default_timer as timer
+from sklearn.datasets import fetch_openml
+from sklearn.model_selection import train_test_split
+from IPython.display import HTML
+import warnings
+warnings.filterwarnings(&#39;ignore&#39;)
 </pre></div>
 </div>
 </div>
@@ -182,7 +181,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;medical_charges_nominal&#39;</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x, y = fetch_openml(name=&#39;medical_charges_nominal&#39;, return_X_y=True)
 </pre></div>
 </div>
 </div>
@@ -194,8 +193,8 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_columns</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">([</span><span class="s1">&#39;category&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
-<span class="n">x</span><span class="p">[</span><span class="n">cat_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">cat_columns</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>cat_columns = x.select_dtypes([&#39;category&#39;]).columns
+x[cat_columns] = x[cat_columns].apply(lambda x: x.cat.codes)
 </pre></div>
 </div>
 </div>
@@ -204,8 +203,8 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.3, random_state=42)
+x_train.shape, x_test.shape, y_train.shape, y_test.shape
 </pre></div>
 </div>
 </div>
@@ -226,8 +225,8 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">patch_sklearn</span>
-<span class="n">patch_sklearn</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearnex import patch_sklearn
+patch_sklearn()
 </pre></div>
 </div>
 </div>
@@ -245,18 +244,18 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">NuSVR</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.svm import NuSVR
 
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;nu&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
-    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">y_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
-    <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
-<span class="n">nusvr</span> <span class="o">=</span> <span class="n">NuSVR</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">train_patched</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-<span class="sa">f</span><span class="s2">&quot;Intel® extension for Scikit-learn time: </span><span class="si">{</span><span class="n">train_patched</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span>
+params = {
+    &#39;nu&#39;: 0.4,
+    &#39;C&#39;: y_train.mean(),
+    &#39;degree&#39;: 2,
+    &#39;kernel&#39;: &#39;poly&#39;,
+}
+start = timer()
+nusvr = NuSVR(**params).fit(x_train, y_train)
+train_patched = timer() - start
+f&quot;Intel® extension for Scikit-learn time: {train_patched:.2f} s&quot;
 </pre></div>
 </div>
 </div>
@@ -274,8 +273,8 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score_opt</span> <span class="o">=</span> <span class="n">nusvr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="sa">f</span><span class="s1">&#39;Intel® extension for Scikit-learn R2 score: </span><span class="si">{</span><span class="n">score_opt</span><span class="si">}</span><span class="s1">&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>score_opt = nusvr.score(x_test, y_test)
+f&#39;Intel® extension for Scikit-learn R2 score: {score_opt}&#39;
 </pre></div>
 </div>
 </div>
@@ -296,8 +295,8 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearnex</span> <span class="kn">import</span> <span class="n">unpatch_sklearn</span>
-<span class="n">unpatch_sklearn</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearnex import unpatch_sklearn
+unpatch_sklearn()
 </pre></div>
 </div>
 </div>
@@ -306,12 +305,12 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">NuSVR</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.svm import NuSVR
 
-<span class="n">start</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
-<span class="n">nusvr</span> <span class="o">=</span> <span class="n">NuSVR</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">train_unpatched</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-<span class="sa">f</span><span class="s2">&quot;Original Scikit-learn time: </span><span class="si">{</span><span class="n">train_unpatched</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> s&quot;</span>
+start = timer()
+nusvr = NuSVR(**params).fit(x_train, y_train)
+train_unpatched = timer() - start
+f&quot;Original Scikit-learn time: {train_unpatched:.2f} s&quot;
 </pre></div>
 </div>
 </div>
@@ -329,8 +328,8 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score_original</span> <span class="o">=</span> <span class="n">nusvr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="sa">f</span><span class="s1">&#39;Original Scikit-learn R2 score: </span><span class="si">{</span><span class="n">score_original</span><span class="si">}</span><span class="s1">&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>score_original = nusvr.score(x_test, y_test)
+f&#39;Original Scikit-learn R2 score: {score_original}&#39;
 </pre></div>
 </div>
 </div>
@@ -347,17 +346,17 @@ Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-le
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;h3&gt;Compare R2 score of patched Scikit-learn and original&lt;/h3&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;R2 score of patched Scikit-learn: </span><span class="si">{</span><span class="n">score_opt</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;R2 score of unpatched Scikit-learn: </span><span class="si">{</span><span class="n">score_original</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;Metrics ratio: </span><span class="si">{</span><span class="n">score_opt</span><span class="o">/</span><span class="n">score_original</span><span class="si">}</span><span class="s2"> &lt;br&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;&lt;h3&gt;With Scikit-learn-intelex patching you can:&lt;/h3&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;&lt;ul&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Use your Scikit-learn code for training and prediction with minimal changes (a couple of lines of code);&lt;/li&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Fast execution training and prediction of Scikit-learn models;&lt;/li&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Get the similar quality&lt;/li&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;&lt;li&gt;Get speedup in &lt;strong&gt;</span><span class="si">{</span><span class="p">(</span><span class="n">train_unpatched</span><span class="o">/</span><span class="n">train_patched</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&lt;/strong&gt; times.&lt;/li&gt;&quot;</span>
-     <span class="sa">f</span><span class="s2">&quot;&lt;/ul&gt;&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>HTML(f&quot;&lt;h3&gt;Compare R2 score of patched Scikit-learn and original&lt;/h3&gt;&quot;
+     f&quot;R2 score of patched Scikit-learn: {score_opt} &lt;br&gt;&quot;
+     f&quot;R2 score of unpatched Scikit-learn: {score_original} &lt;br&gt;&quot;
+     f&quot;Metrics ratio: {score_opt/score_original} &lt;br&gt;&quot;
+     f&quot;&lt;h3&gt;With Scikit-learn-intelex patching you can:&lt;/h3&gt;&quot;
+     f&quot;&lt;ul&gt;&quot;
+     f&quot;&lt;li&gt;Use your Scikit-learn code for training and prediction with minimal changes (a couple of lines of code);&lt;/li&gt;&quot;
+     f&quot;&lt;li&gt;Fast execution training and prediction of Scikit-learn models;&lt;/li&gt;&quot;
+     f&quot;&lt;li&gt;Get the similar quality&lt;/li&gt;&quot;
+     f&quot;&lt;li&gt;Get speedup in &lt;strong&gt;{(train_unpatched/train_patched):.1f}&lt;/strong&gt; times.&lt;/li&gt;&quot;
+     f&quot;&lt;/ul&gt;&quot;)
 </pre></div>
 </div>
 </div>
